@@ -57,69 +57,45 @@ Close and restart your terminal to apply the path changes.
 
 ## Usage 
 After installation, you can run the tool using the CLI:
-
-    poetry run get-papers-list "your pubmed query" --file output.csv
-    
-    Options
-    QUERY: The PubMed search term (required)
-
-        --file / -f: Optional output CSV file path
-
-        --debug / -d: Print debug information while running
-
-        --help: Show help message and available options
-
-    Example
-
-        poetry run get-papers-list "knee osteoarthritis" --file koa_results.csv --debug
-    This will fetch papers related to knee osteoarthritis, filter for non-academic authors (like researchers from pharmaceutical companies), and save the results in koa_results.csv.
+##### poetry run get-papers-list "your pubmed query" --file output.csv
+### Options
+##### QUERY: The PubMed search term (required)
+##### --file / -f: Optional output CSV file path
+##### --debug / -d: Print debug information while running
+##### --help: Show help message and available options
+### Example
+##### poetry run get-papers-list "knee osteoarthritis" --file koa_results.csv --debug
+This will fetch papers related to knee osteoarthritis, filter for non-academic authors (like researchers from pharmaceutical companies), and save the results in koa_results.csv.
 
 
 
 ## Development Journey 
-* created new directory and initializing a git   repository to track the development process
-    mkdir pubmed_paper_fetcher
-    cd pubmed_paper_fetcher
-    git init
+### created new directory and initializing a git repository to track the development process
+##### mkdir pubmed_paper_fetcher
+##### cd pubmed_paper_fetcher
+##### git init
 
-* installed poetry 
-    (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
-
-    [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";C:\Users\Asus\AppData\Roaming\Python\Scripts", "User")
-
-    close terminal and restart a new terminal 
-
-    C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry --version
-
-* scaffolded the project,enabling a clean structure with a src/ layout.
-    C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry new --src pubmed_paper_fetcher
-
-* access the project folder
-    cd C:\Users\Asus\Desktop\pubmed_paper_fetcher\pubmed_paper_fetcher
-
-* created a virtual environment 
-    C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry env use python 
-    Creating virtualenv pubmed-paper-fetcher-Ic4uL52_-py3.13 in C:\Users\Asus\AppData\Local\pypoetry\Cache\virtualenvs
-    Using virtualenv: C:\Users\Asus\AppData\Local\pypoetry\Cache\virtualenvs\pubmed-paper-fetcher-Ic4uL52_-py3.13
-
-
-    (base) PS C:\Users\Asus\Desktop\pubmed_paper_fetcher\pubmed_paper_fetcher> C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry env info --path
-    C:\Users\Asus\AppData\Local\pypoetry\Cache\virtualenvs\pubmed-paper-fetcher-Ic4uL52_-py3.13
-
-* installing dependancies
-    C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry add requests
-
-    C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry add pandas
-
-    C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry add typer
-
-    C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry add --group dev mypy pytest
-
-    C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry add openai
-
-    verify if all r there in pyproject.toml 
-
-* make files
+### installed poetry 
+##### (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+##### [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";C:\Users\Asus\AppData\Roaming\Python\Scripts", "User")
+close terminal and restart a new terminal 
+##### C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry --version
+### scaffolded the project,enabling a clean structure with a src/ layout.
+##### C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry new --src pubmed_paper_fetcher
+### access the project folder
+##### cd C:\Users\Asus\Desktop\pubmed_paper_fetcher\pubmed_paper_fetcher
+### created a virtual environment 
+##### C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry env use python Creating virtualenv pubmed-paper-fetcher-Ic4uL52_-py3.13 in C:\Users\Asus\AppData\Local\pypoetry\Cache\virtualenvs Using virtualenv: C:\Users\Asus\AppData\Local\pypoetry\Cache\virtualenvs\pubmed-paper-fetcher-Ic4uL52_-py3.13
+##### (base) PS C:\Users\Asus\Desktop\pubmed_paper_fetcher\pubmed_paper_fetcher> C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry env info --path
+C:\Users\Asus\AppData\Local\pypoetry\Cache\virtualenvs\pubmed-paper-fetcher-Ic4uL52_-py3.13
+### installing dependancies
+##### C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry add requests
+##### C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry add pandas
+##### C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry add typer
+##### C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry add --group dev mypy pytest
+##### C:\Users\Asus\AppData\Roaming\Python\Scripts\poetry add openai
+verify if all r there in pyproject.toml 
+### make files
     src/
     └── pubmed_paper_fetcher/
         ├── __init__.py
@@ -137,19 +113,12 @@ After installation, you can run the tool using the CLI:
                 writer.py	Convert results to CSV
                 llm_helper.py	Use OpenAI LLM (optional) to help spot pharma authors
                 utils.py	Small helper functions, string cleanup etc
-
-
-* setting up files
-
-    * set up cli.py file code:
-        This is the entry point for your tool. It will:
-            Accept --query from command line
-            Optionally --file to save output
-            --debug flag for extra prints
-            --help support (Typer does this automatically)
-        put the following in pyproject.toml:
-            [tool.poetry.scripts]
-            get-papers-list = "pubmed_paper_fetcher.cli:app"
+### setting up files
+#### set up cli.py file code:
+This is the entry point for your tool. It will: Accept --query from command line, Optionally --file to save output, --debug flag for extra prints, --help support (Typer does this automatically)
+#### put the following in pyproject.toml:
+[tool.poetry.scripts]
+get-papers-list = "pubmed_paper_fetcher.cli:app"
         to test if cli is working:
             in a new terminal 
                 cd file name 
