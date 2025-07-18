@@ -117,57 +117,42 @@ verify if all r there in pyproject.toml
 #### set up cli.py file code:
 This is the entry point for your tool. It will: Accept --query from command line, Optionally --file to save output, --debug flag for extra prints, --help support (Typer does this automatically)
 #### put the following in pyproject.toml:
-[tool.poetry.scripts]
-get-papers-list = "pubmed_paper_fetcher.cli:app"
-        to test if cli is working:
-            in a new terminal 
-                cd file name 
-                poetry install
-                poetry run get-papers-list --help
-
-    * set up fetcher:
-        We’ll now implement logic that:
-            Uses your query to call PubMed’s API
-            Retrieves relevant metadata (title, publication date, authors, etc.)
-            Returns that data in a structured format (like a list of dicts)
-        PubMed API (Entrez from NCBI) lets you:
-        Search for paper IDs using a query (esearch)
-        Fetch metadata for those papers (efetch or esummary)
-
-    * setup filter 
-
-    * setup writer
+##### [tool.poetry.scripts]
+##### get-papers-list = "pubmed_paper_fetcher.cli:app"
+#### to test if cli is working:
+in a new terminal 
+##### cd file name 
+##### poetry install
+##### poetry run get-papers-list --help
+#### set up fetcher:
+We’ll now implement logic that: Uses your query to call PubMed’s API, Retrieves relevant metadata (title, publication date, authors, etc.), Returns that data in a structured format (like a list of dicts).
+The PubMed API (Entrez from NCBI) lets you: Search for paper IDs using a query (esearch), Fetch metadata for those papers (efetch or esummary)
+#### setup filter 
+#### setup writer
 
 
 ## For LLM-based classification, I experimented with different backends
-    OpenAI: using the OPENAI_API_KEY from the OpenAI platform
-    Hugging Face: adding transformers, torch, and configuring the HF_API_TOKEN
-    Ollama: setting up local inference with models like gemma3 after downloading and running the Ollama application
+### OpenAI:
+using the OPENAI_API_KEY from the OpenAI platform
+### Hugging Face: 
+adding transformers, torch, and configuring the HF_API_TOKEN
+### Ollama: 
+setting up local inference with models like gemma3 after downloading and running the Ollama application
 
 ## for using LLMs
-    * to use openai LLM 
-        $env:OPENAI_API_KEY = "your-real-api-key-here"
-        go to the  https://platform.openai.com/account/api-keys and login 
-        Click “Create new secret key”
-        Give it a name like pubmed-script
-        Copy the generated key immediately (it looks like: sk-...)
-        Do not share this key publicly.
+### to use openai LLM 
+##### $env:OPENAI_API_KEY = "your-real-api-key-here"
+go to the  https://platform.openai.com/account/api-keys and login. Click “Create new secret key”. Give it a name like pubmed-script. Copy the generated key immediately (it looks like: sk-...). Do not share this key publicly.
 
-    * to use hugging face LLM
-        Sign up: https://huggingface.co/join
-        Go to: https://huggingface.co/settings/tokens → Click New token
-        Copy the token.
-        poetry add transformers torch requests
-        $env:HF_API_TOKEN = "your-huggingface-token-here"
+### to use hugging face LLM
+##### $env:HF_API_TOKEN = "your-huggingface-token-here"
+Sign up: https://huggingface.co/join. Go to: https://huggingface.co/settings/tokens → Click New token. Copy the token. 
+##### poetry add transformers torch requests
 
-    * to use models by ollama
-        Go to: https://ollama.com/download
-        Click the “Download for Windows” button.
-        After downloading:
-        Run the .msi installer
-        Complete the installation
-        Restart your terminal (PowerShell)
-        in new terminal :ollama run gemma3    #use any model
+### to use models by ollama
+Go to: https://ollama.com/download. Click the “Download for Windows” button. After downloading: Run the .msi installer, Complete the installation, Restart your terminal (PowerShell), in new terminal :ollama run gemma3 
+
+### ollama instructions
             /set            Set session variables
             /show           Show model information
             /load <model>   Load a session or model
