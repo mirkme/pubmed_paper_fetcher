@@ -1,4 +1,5 @@
-##PubMed Paper Fetcher – Smart Literature Search for Science and Research
+## PubMed Paper Fetcher – Smart Literature Search for Science and Research ##
+
 PubMed Paper Fetcher is a command line tool designed to simplify and accelerate your literature review process. Instead of manually sifting through the enormous PubMed database, this tool allows you to search for papers by keyword, identify which ones have authors affiliated with companies or the pharmaceutical industry, and export your findings into a clean CSV format. Whether you’re a researcher trying to find relevant studies, a journalist probing the intersection of science and industry, or a data scientist preparing training data for a machine learning model, this tool can help you save time and focus your efforts.
 
 Real-world scenarios where PubMed Paper Fetcher proves useful are numerous. Suppose you are researching COVID-19 vaccine development and want to understand how much of the work is driven by private companies. Or imagine you’re working on a study to detect KOA (Knee Osteoarthritis) using AI models and want to filter papers where companies contributed to imaging datasets or model design. You might even be exploring the ethics of pharmaceutical involvement in clinical trials. With this tool, you can quickly discover which papers have non-academic affiliations, flag relevant companies, and even enhance the detection accuracy using language models like OpenAI’s GPT, Hugging Face’s models, or local LLMs via Ollama.
@@ -6,7 +7,7 @@ Real-world scenarios where PubMed Paper Fetcher proves useful are numerous. Supp
 PubMed Paper Fetcher brings speed, structure and intelligence to your biomedical literature search. It’s especially handy when working on data-driven projects, writing a grant proposal, or conducting a deep dive into industry involvement across medical research topics.
 
 
-**Features**
+## Features 
     *Search PubMed with Ease: Just provide a keyword (like covid vaccine, cancer immunotherapy, or even KOA detection) and the tool fetches the latest, most relevant papers directly from PubMed.
 
     *Filters Non-Academic Authors: Automatically detects and highlights papers that include authors from industry—like pharma companies, biotech startups, or research labs—rather than purely academic institutions.
@@ -19,7 +20,7 @@ PubMed Paper Fetcher brings speed, structure and intelligence to your biomedical
 
     *Use Cases in the Real World: Whether you're tracking vaccine trial results, investigating pharma involvement in COVID-19 publications, or identifying company-linked research in KOA (Knee Osteoarthritis) detection, this tool gives you an edge.
 
-**Installation**
+## Installation
 Step 1: Clone the Repository
 
     git clone https://github.com/your-username/pubmed_paper_fetcher.git
@@ -41,7 +42,7 @@ Step 4: Test the CLI
     poetry run get-papers-list --help
 
 
-**structure of the project**
+## structure of the project
     pubmed_paper_fetcher/
     ├── src/
     │   └── pubmed_paper_fetcher/
@@ -59,7 +60,7 @@ Step 4: Test the CLI
     └── README.md                         # Documentation and usage instructions
 
 
-**Usage**
+## Usage 
 After installation, you can run the tool using the CLI:
 
     poetry run get-papers-list "your pubmed query" --file output.csv
@@ -80,7 +81,7 @@ After installation, you can run the tool using the CLI:
 
 
 
-**Development Journey**
+## Development Journey 
 * created new directory and initializing a git   repository to track the development process
     mkdir pubmed_paper_fetcher
     cd pubmed_paper_fetcher
@@ -174,12 +175,12 @@ After installation, you can run the tool using the CLI:
     * setup writer
 
 
-**For LLM-based classification, I experimented with different backends**
+## For LLM-based classification, I experimented with different backends
     OpenAI: using the OPENAI_API_KEY from the OpenAI platform
     Hugging Face: adding transformers, torch, and configuring the HF_API_TOKEN
     Ollama: setting up local inference with models like gemma3 after downloading and running the Ollama application
 
-**for using LLMs**
+## for using LLMs
     * to use openai LLM 
         $env:OPENAI_API_KEY = "your-real-api-key-here"
         go to the  https://platform.openai.com/account/api-keys and login 
@@ -211,9 +212,4 @@ After installation, you can run the tool using the CLI:
             /bye            Exit
             /?, /help       Help for a command
             /? shortcuts    Help for keyboard shortcuts
-
-**publish pubmed_paper_fetcher package to TestPyPI**
-cd pubmed_paper_fetcher
-poetry build
-poetry add --group dev twine
 
