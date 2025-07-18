@@ -1,5 +1,6 @@
 ## PubMed Paper Fetcher – Smart Literature Search for Science and Research ##
 
+## overview
 PubMed Paper Fetcher is a command line tool designed to simplify and accelerate your literature review process. Instead of manually sifting through the enormous PubMed database, this tool allows you to search for papers by keyword, identify which ones have authors affiliated with companies or the pharmaceutical industry, and export your findings into a clean CSV format. Whether you’re a researcher trying to find relevant studies, a journalist probing the intersection of science and industry, or a data scientist preparing training data for a machine learning model, this tool can help you save time and focus your efforts.
 
 Real-world scenarios where PubMed Paper Fetcher proves useful are numerous. Suppose you are researching COVID-19 vaccine development and want to understand how much of the work is driven by private companies. Or imagine you’re working on a study to detect KOA (Knee Osteoarthritis) using AI models and want to filter papers where companies contributed to imaging datasets or model design. You might even be exploring the ethics of pharmaceutical involvement in clinical trials. With this tool, you can quickly discover which papers have non-academic affiliations, flag relevant companies, and even enhance the detection accuracy using language models like OpenAI’s GPT, Hugging Face’s models, or local LLMs via Ollama.
@@ -8,38 +9,32 @@ PubMed Paper Fetcher brings speed, structure and intelligence to your biomedical
 
 
 ## Features 
-    *Search PubMed with Ease: Just provide a keyword (like covid vaccine, cancer immunotherapy, or even KOA detection) and the tool fetches the latest, most relevant papers directly from PubMed.
-
-    *Filters Non-Academic Authors: Automatically detects and highlights papers that include authors from industry—like pharma companies, biotech startups, or research labs—rather than purely academic institutions.
-
-    *LLM-Powered Filtering (Optional): If you want smarter filtering, enable LLM support to classify affiliations more intelligently using OpenAI, Hugging Face models, or local models via Ollama.
-
-    *Outputs Ready-to-Use CSV: The results are saved in a clean CSV file with PubMed ID, title, date, non-academic authors, company names, and corresponding emails—perfect for data science workflows, reporting, or review.
-
-    *Flexible LLM Backends: Supports OpenAI API, Hugging Face inference endpoints, or fully offline models using Ollama so you can choose your preferred LLM provider.
-
-    *Use Cases in the Real World: Whether you're tracking vaccine trial results, investigating pharma involvement in COVID-19 publications, or identifying company-linked research in KOA (Knee Osteoarthritis) detection, this tool gives you an edge.
+### Search PubMed with Ease
+Just provide a keyword (like covid vaccine, cancer immunotherapy, or even KOA detection) and the tool fetches the latest, most relevant papers directly from PubMed.
+### Filters Non-Academic Authors
+Automatically detects and highlights papers that include authors from industry—like pharma companies, biotech startups, or research labs—rather than purely academic institutions.
+### LLM-Powered Filtering (Optional)
+If you want smarter filtering, enable LLM support to classify affiliations more intelligently using OpenAI, Hugging Face models, or local models via Ollama.
+### Outputs Ready-to-Use CSV
+The results are saved in a clean CSV file with PubMed ID, title, date, non-academic authors, company names, and corresponding emails—perfect for data science workflows, reporting, or review.
+### Flexible LLM Backends
+Supports OpenAI API, Hugging Face inference endpoints, or fully offline models using Ollama so you can choose your preferred LLM provider.
+### Use Cases in the Real World
+Whether you're tracking vaccine trial results, investigating pharma involvement in COVID-19 publications, or identifying company-linked research in KOA (Knee Osteoarthritis) detection, this tool gives you an edge.
 
 ## Installation
-Step 1: Clone the Repository
-
-    git clone https://github.com/your-username/pubmed_paper_fetcher.git
-    cd pubmed_paper_fetcher
-Step 2: Set Up Poetry (if not already installed)
-
-    (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
-    Then add Poetry to your system path (PowerShell):
-
-    [Environment]::SetEnvironmentVariable("Path", $Env:Path + ";C:\Users\<YourUser>\AppData\Roaming\Python\Scripts", "User")
-    💡 Close and restart your terminal to apply the path changes.
-
-Step 3: Install Dependencies
-
-    poetry install
-
-Step 4: Test the CLI
-
-    poetry run get-papers-list --help
+### Step 1: Clone the Repository
+##### git clone https://github.com/your-username/pubmed_paper_fetcher.git
+##### cd pubmed_paper_fetcher
+### Step 2: Set Up Poetry (if not already installed)
+##### (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+Then add Poetry to your system path (PowerShell)
+##### [Environment]::SetEnvironmentVariable("Path", $Env:Path + ";C:\Users\<YourUser>\AppData\Roaming\Python\Scripts", "User")
+Close and restart your terminal to apply the path changes.
+### Step 3: Install Dependencies
+##### poetry install
+### Step 4: Test the CLI
+##### poetry run get-papers-list --help
 
 
 ## structure of the project
